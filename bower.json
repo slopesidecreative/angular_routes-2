@@ -1,0 +1,23 @@
+{
+  "name": "ang_routes2",
+  "homepage": "https://github.com/slopesidecreative/angular_routes-2",
+  "authors": [
+    "Erik Clineschmidt <eclineschmidt@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "express": "^4.14.0",
+    "angular": "^1.6.0",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
