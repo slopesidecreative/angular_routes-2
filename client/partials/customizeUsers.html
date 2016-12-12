@@ -5,10 +5,10 @@
 
 <div>
    <label for="firstname">First Name</label><br/>
-   <input type="text" name="first_name" ng-model="newUser.lastname"></div>
+   <input type="text" name="first_name" ng-model="uc.newUser.first_name"></div>
    <label for="lastname">Last Name</label><br/>
-   <input type="text" name="last_tname" ng-model="newUser.lastname"></div><br/>
-   <button type="submit">Add User</button>
+   <input type="text" name="last_name" ng-model="uc.newUser.last_name"></div><br/>
+   <button type="submit" ng-click='uc.create()'>Add User</button>
 </div>
 
 <div>

@@ -26,7 +26,6 @@ app.config(function($routeProvider){
 
 // CONTROLLERS -----------------------------
 
-
 app.controller('userCtrl', ['userFactory', userCtrl]);
 function userCtrl(userFactory){
    var _this = this;
@@ -37,12 +36,17 @@ function userCtrl(userFactory){
        _this.users = data;
        _this.user = {};
    }
+   _this.create = function(){
+      console.log('USER CTRL CREATE ', _this.newUser);
+      //userFactory.create(_this.newUser, setProducts);
+   }
+
    _this.destroy = function($index){
       console.log('USER CTRL DESTROY: ', $index);
    }
 
-   userFactory.index(setUsers);
 
+   userFactory.index(setUsers);
 
 };
 
