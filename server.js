@@ -3,7 +3,7 @@ var mongoose = require( 'mongoose' ),
     bp       = require('body-parser'),
     path     = require( 'path' ),
     root     = __dirname,
-    port     = process.env.PORT || 8000,
+    port     = process.env.PORT || 8001,
     app      = express();
 app.use( express.static( path.join( root, 'client' )));
 app.use( express.static( path.join( root, 'bower_components' )));
