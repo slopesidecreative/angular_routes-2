@@ -8,7 +8,7 @@ app.config(function($routeProvider){
    $routeProvider
    .when('/users',{
       templateUrl: 'partials/customizeUsers.html',
-      controller: 'customCtrl as cc'
+      controller: 'userCtrl as uc'
    })
    .when('/list',{
       templateUrl: 'partials/userList.html',
@@ -25,31 +25,35 @@ app.config(function($routeProvider){
 
 
 // CONTROLLERS -----------------------------
-// app.controller('customCtrl',
-// function customCtrl(userFactory){
-//    this.users = [];
-//    // console.log(this);
-// });
 
+
+app.controller('userCtrl', ['userFactory', userCtrl]);
+function userCtrl(userFactory){
+   var _this = this;
+   _this.users = [];
+   _this.user = {};
+
+   function setUsers(data){
+       _this.users = data;
+       _this.user = {};
+   }
+
+   userFactory.index(setUsers);
+
+};
 
 app.controller('listCtrl', ['userFactory', listCtrl]);
-
 function listCtrl(userFactory){
    var _this = this;
    _this.users = [];
    _this.user = {};
 
    function setUsers(data){
-       console.log('Got Factory data: ',data);
        _this.users = data;
-       console.log('Set users: ',this.users);
        _this.user = {};
    }
 
    userFactory.index(setUsers);
-
-   // this.sports = ['golf', 'basketball', 'hockey', 'tennis', 'football'];
-   // this.users = [{first_name: "erik",last_name:"clineschmidt",favorite:"javascript"},{first_name: "jane",last_name:"doe",favorite:"python"}];
 
 };
 
@@ -59,7 +63,6 @@ app.factory('userFactory',['$http',function($http){
    var factory = {};
    // var users = [];
    var users = [{first_name: "erik",last_name:"clineschmidt",favorite:"javascript"},{first_name: "jane",last_name:"doe",favorite:"python"}];
-
 
    factory.index = function(callback){
       console.log("USERFACTORY: INDEX");
