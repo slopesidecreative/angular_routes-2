@@ -37,8 +37,12 @@ function userCtrl(userFactory){
        _this.users = data;
        _this.user = {};
    }
+   _this.destroy = function($index){
+      console.log('USER CTRL DESTROY: ', $index);
+   }
 
    userFactory.index(setUsers);
+
 
 };
 
