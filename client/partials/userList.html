@@ -1,6 +1,21 @@
 <h1>list users</h1>
 
 
-<ul>
-   <li ng-repeat='user in lc.users'>{{user.favorite}}</li>
-</ul>
+<div>
+   <table class="table table-striped" ng-if="lc.users.length>0">
+     <thead>
+       <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Favorite</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr ng-repeat="user in lc.users">
+         <td>{{user.first_name}}</td>
+         <td>{{user.last_name}}</td>
+         <td>{{user.favorite}}</td>
+       </tr>
+    </tbody>
+   </table>
+</div>
