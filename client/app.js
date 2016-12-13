@@ -43,7 +43,7 @@ function userCtrl(userFactory){
 
    _this.destroy = function($index){
       console.log('USER CTRL DESTROY: ', $index);
-      productFactory.delete(id,setUsers);
+      userFactory.delete($index,setUsers);
    }
 
    userFactory.index(setUsers);
