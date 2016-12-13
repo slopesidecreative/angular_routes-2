@@ -38,13 +38,13 @@ function userCtrl(userFactory){
    }
    _this.create = function(){
       console.log('USER CTRL CREATE ', _this.newUser);
-      //userFactory.create(_this.newUser, setProducts);
+      userFactory.create(_this.newUser, setUsers);
    }
 
    _this.destroy = function($index){
       console.log('USER CTRL DESTROY: ', $index);
+      productFactory.delete(id,setUsers);
    }
-
 
    userFactory.index(setUsers);
 
@@ -73,20 +73,23 @@ app.factory('userFactory',['$http',function($http){
    var users = [{first_name: "erik",last_name:"clineschmidt",favorite:"javascript"},{first_name: "jane",last_name:"doe",favorite:"python"}];
 
    factory.index = function(callback){
-      console.log("USERFACTORY: INDEX");
       callback(users);
    }
 
-   factory.create =  function(user,callback){
-
+   factory.create =  function(newUser,callback){
+      users.push(newUser);
+      callback(users);
    }
 
    factory.delete = function(id,callback){
-
+      if(users.length>0){
+         users.splice(id,1);
+      }
+      callback(users);
    }
 
-   factory.one = function(id,callback){
-
+   factory.one = function(index,callback){
+      callback(users[index]);
    }
 
    return factory;
